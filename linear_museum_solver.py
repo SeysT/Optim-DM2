@@ -1,3 +1,21 @@
+"""
+Author: Thibaut Seys
+Last modified: 07/02/2018
+
+This file use the linear programming to modelize and solve our museum problems.
+
+Model:
+    + variables:
+        We have one boolean variable per camera's type per position on our grid. If it is True,
+        then we place this type of camera at this position.
+    + constraint:
+        For each work of art, we look at variables in range of the camera's radius. At least one
+        of them should be True (the sum should be greater or equal to 1).
+    + objective function:
+        We want to minimize the total price of our cameras. This corresponds to the sum of our
+        variables times the price of the camera type.
+
+"""
 from pyscipopt import Model, quicksum
 
 from utils import load_data_from_file, plot_solutions, pprint
