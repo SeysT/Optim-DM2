@@ -54,4 +54,8 @@ La modélisation et la résolution du problème par recherche local se situent d
 - **local_museum_solver.py** : implémentation de la modélisation et la résolution du problème par recherche local
 - **utils.py** : fonctions permettant la résolution du problème
 - **Data/input_1.txt** : première liste d'oeuvres d'art simple de l'énoncé (5 oeuvres)
+- **Data/linear_output_1.txt** : résultat formaté comme attendu par l'énoncé obtenu en appliquant la programmation linéaire à l'input 1
+- **Data/linear_output_1.png** : cartographie obtenue en appliquant la programmation linéaire à l'input 1
 - **Data/input_9.txt** : seconde liste d'oeuvres d'art complexe de l'énoncé (5000 oeuvres)
+- **Data/linear_output_9.txt** : résultat formaté comme attendu par l'énoncé obtenu en appliquant la programmation linéaire à l'input 9
+- **Data/linear_output_9.png** : cartographie obtenue en appliquant la programmation linéaire à l'input 9
