@@ -35,6 +35,26 @@ def load_data_from_file(data_filename):
     return cameras, works_of_art
 
 
+def load_solution_from_file(solution_filename, camera_configurations):
+    """
+    This function loads a solution from file.
+    + params:
+        - solution_filename: the filename of the solution file
+        - camera_configurations: a list of tuples containing radius and price of cameras:
+            [(radius, price), ...]
+    + returns:
+        - cameras: a list of tuples containing radius, price and coordinates of cameras:
+            [(radius, price, x, y), ...]
+    """
+    with open(solution_filename, 'r') as solution_file:
+        solutions = solution_file.read().strip().split('\n')
+    cameras = []
+    for solution in solutions:
+        index, x, y = solution.split(',')
+        cameras.append(camera_configurations[int(index) - 1] + (int(x), int(y)))
+    return cameras
+
+
 def plot_solutions(works_of_art, cameras):
     """
     This function plot on a graphic all works of arts and cameras.

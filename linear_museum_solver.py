@@ -21,7 +21,8 @@ from pyscipopt import Model, quicksum
 from utils import load_data_from_file, plot_solutions, pprint
 
 
-def linear_solve(data_filename):
+def linear_solve(data_filename, plot_result=True):
+    print('Linear programming solving...')
     model = Model('Museum expo')
 
     print('Loading data from file...')
@@ -61,12 +62,17 @@ def linear_solve(data_filename):
 
     if model.getStatus() != 'optimal':
         print('LP is not feasible')
+
+        return None
     else:
-        print('Total cost found: {}'.format(model.getObjVal()))
+        solution = [key for key, var in camera_vars.items() if model.getVal(var)]
+        if plot_result:
+            print('Total cost found: {}'.format(model.getObjVal()))
 
-        print('Plotting results...')
-        camera_vals = [key for key, var in camera_vars.items() if model.getVal(var)]
-        plot_solutions(works_of_art, camera_vals)
+            print('Plotting results...')
+            plot_solutions(works_of_art, solution)
 
-        print('Formatted results:')
-        pprint(camera_vals, camera_configurations)
+            print('Formatted results:')
+            pprint(solution, camera_configurations)
+
+        return solution
