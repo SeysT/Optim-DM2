@@ -1,10 +1,10 @@
-Autheur: Thibaut Seys
+Autheur : Thibaut Seys
 
-Date: 08/02/2018
+Date : 08/02/2018
 
 Requirements : pyscipopt, matplotlib
 
-Lien github: https://github.com/SeysT/Optim-DM2
+Lien github : https://github.com/SeysT/Optim-DM2
 
 # Optimisation - Devoir-Maison 2 : Exposition au musée
 
