@@ -1,3 +1,9 @@
+"""
+Author: Thibaut Seys
+Last modified: 08/02/2018
+
+This file modelize and resolve the problem by a local research algorithm.
+"""
 from random import choice
 from copy import deepcopy
 
@@ -49,14 +55,23 @@ def local_solve(data_filename, solution_filename=None, plot_result=True):
 
 
 def objective_function(cameras):
+    """
+    Returns the sum of price for given cameras.
+    """
     return sum(price for _, price, _, _ in cameras)
 
 
 def generate_simple_solution(camera_configurations, works_of_art):
+    """
+    Returns a solution with a camera of radius 1 for all positions in works of arts.
+    """
     return [min(camera_configurations, key=lambda x: x[0]) + (x, y) for x, y in works_of_art]
 
 
 def choose_best_solution(solution_1, solution_2):
+    """
+    Returns the solution with the lowest objective function.
+    """
     return (
         solution_1
         if objective_function(solution_1) <= objective_function(solution_2)
@@ -65,6 +80,9 @@ def choose_best_solution(solution_1, solution_2):
 
 
 def choose_next_solution(solution, camera_configurations, works_of_art):
+    """
+    This function add a random camera to the solution and remove near useless cameras.
+    """
     height = max(works_of_art, key=lambda x: x[0])[0]
     width = max(works_of_art, key=lambda x: x[1])[1]
     possible_positions = list(zip(range(height + 1), range(width + 1)))
@@ -93,6 +111,17 @@ def choose_next_solution(solution, camera_configurations, works_of_art):
 
 
 def get_covered_works(cameras, works_of_art):
+    """
+    Returns a set of covered works by a list of cameras.
+    + params:
+        - cameras: a list of cameras, formatted as followed:
+            [(radius, price, x, y), ...]
+        - works_of_art: list of works of art, formatted as followed:
+            [(x, y), ...]
+    + returns:
+        - covered_works: list of covered works, formatted as followed:
+            [(x, y), ...]
+    """
     covered_works = set()
     if isinstance(cameras, tuple):
         cameras = [cameras]
