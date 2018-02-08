@@ -33,6 +33,16 @@ L'idée pour modéliser les contraintes est de regarder la position de chaque oe
 
 Notre fonction objectif est le coût total des caméras que nous allons chercher à minimiser. Il s'agit de la somme des variables booléennes définies ci-dessus pondérées par le prix du type de caméra qu'elle représente.
 
+### Résultats
+
+Les résultats présentés ici ont été obtenues à partir du fichier d'entrées **Data/input_9.txt** fournis par l'énoncé. Nous avons utilisé la commande suivante pour générer les résultats :
+```sh
+$ python museum_solver.py Data/input_9.txt linear
+```
+Les résultats obtenus sont présents dans les fichiers **Data/linear_output_9.png** et **Data/linear_output_9.txt**. Le coût total obtenu est de 2680 et la cartographie de la solution est présentée ci-après :
+
+![linear_output_9](https://raw.githubusercontent.com/SeysT/Optim-DM2/master/Data/linear_output_9.png)
+
 ## 2ème tentative de résolution : recherche local
 
 La modélisation et la résolution du problème par recherche local se situent dans le fichier `local_museum_solver.py`.
@@ -44,4 +54,8 @@ La modélisation et la résolution du problème par recherche local se situent d
 - **local_museum_solver.py** : implémentation de la modélisation et la résolution du problème par recherche local
 - **utils.py** : fonctions permettant la résolution du problème
 - **Data/input_1.txt** : première liste d'oeuvres d'art simple de l'énoncé (5 oeuvres)
+- **Data/linear_output_1.txt** : résultat formaté comme attendu par l'énoncé obtenu en appliquant la programmation linéaire à l'input 1
+- **Data/linear_output_1.png** : cartographie obtenue en appliquant la programmation linéaire à l'input 1
 - **Data/input_9.txt** : seconde liste d'oeuvres d'art complexe de l'énoncé (5000 oeuvres)
+- **Data/linear_output_9.txt** : résultat formaté comme attendu par l'énoncé obtenu en appliquant la programmation linéaire à l'input 9
+- **Data/linear_output_9.png** : cartographie obtenue en appliquant la programmation linéaire à l'input 9
